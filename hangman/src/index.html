@@ -1,11 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hangman</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css" media="screen" charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main class="hangman">
+      <h1 class="hangman__title">Hangman</h1>
+      <article class="hangman-wrapper">
+        <section class="hangman__results">
+          <div class="hangman__gallows">
+            <!-- <img class="hangman__tree" src="img/Tree.png" alt="" width="514" height="572"> -->
+            <!-- <img class="hangman__body-part" src="img/FullBody.png" alt="" width="514" height="572"> -->
+          </div>
+          <div class="hangman__attempts">
+            <img class="hangman__heart" src="img/Heart.png" alt="" width="61" height="66">
+            <p class="hangman__attempts-information">5/6</p>
+          </div>
+        </section>
+        <section class="hangman__play">
+          <section class="hangman__answer">
+            <p class="hangman__answer-letter"></p>
+            <p class="hangman__answer-letter"></p>
+            <p class="hangman__answer-letter">d</p>
+            <p class="hangman__answer-letter">d</p>
+            <p class="hangman__answer-letter"></p>
+            <p class="hangman__answer-letter"></p>
+          </section>
+          <section class="hangman__question">
+            <p class="hangman__question-text">Can you guess 6 letters  Drink name choosing alphabets from A-z ( you have 6 guesses)</p>
+          </section>
+          <section class="hangman__keyboard keyboard">
+            <div class="keyboard__row">
+              <p class="keyboard__letter">Q</p>
+              <p class="keyboard__letter">W</p>
+              <p class="keyboard__letter">E</p>
+              <p class="keyboard__letter">R</p>
+              <p class="keyboard__letter">T</p>
+              <p class="keyboard__letter">Y</p>
+              <p class="keyboard__letter">U</p>
+              <p class="keyboard__letter">I</p>
+              <p class="keyboard__letter">O</p>
+              <p class="keyboard__letter">P</p>
+            </div>
+            <div class="keyboard__row">
+              <p class="keyboard__letter">A</p>
+              <p class="keyboard__letter">S</p>
+              <p class="keyboard__letter">D</p>
+              <p class="keyboard__letter">F</p>
+              <p class="keyboard__letter">G</p>
+              <p class="keyboard__letter">H</p>
+              <p class="keyboard__letter">J</p>
+              <p class="keyboard__letter">K</p>
+              <p class="keyboard__letter">L</p>
+            </div>
+            <div class="keyboard__row">
+              <p class="keyboard__letter">Z</p>
+              <p class="keyboard__letter">X</p>
+              <p class="keyboard__letter">C</p>
+              <p class="keyboard__letter">V</p>
+              <p class="keyboard__letter">B</p>
+              <p class="keyboard__letter">N</p>
+              <p class="keyboard__letter">M</p>
+            </div>
+          </section>
+        </section>
+      </article>
+    </main>
+  </body>
 </html>
