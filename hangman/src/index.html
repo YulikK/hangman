@@ -1,23 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman</title>
     <link rel="stylesheet" href="style.css" media="screen" charset="utf-8" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main class="hangman">
       <h1 class="hangman__title">Hangman</h1>
-      <article class="hangman-wrapper">
+      <article class="hangman__wrapper">
         <section class="hangman__results">
           <div class="hangman__gallows">
-            <!-- <img class="hangman__tree" src="img/Tree.png" alt="" width="514" height="572"> -->
-            <!-- <img class="hangman__body-part" src="img/FullBody.png" alt="" width="514" height="572"> -->
+            <img
+              class="hangman__gallows-tree"
+              src="img/tree.png"
+              alt="allows"
+              width="514"
+              height="572"
+            />
+            <img
+              class="hangman__gallows-mistake"
+              src="img/mistake-6.png"
+              alt="mistake"
+              width="514"
+              height="572"
+            />
           </div>
           <div class="hangman__attempts">
-            <img class="hangman__heart" src="img/Heart.png" alt="" width="61" height="66">
+            <img
+              class="hangman__heart"
+              src="img/Heart.png"
+              alt=""
+              width="61"
+              height="66"
+            />
             <p class="hangman__attempts-information">5/6</p>
           </div>
         </section>
@@ -31,7 +52,10 @@
             <p class="hangman__answer-letter"></p>
           </section>
           <section class="hangman__question">
-            <p class="hangman__question-text">Can you guess 6 letters  Drink name choosing alphabets from A-z ( you have 6 guesses)</p>
+            <p class="hangman__question-text">
+              Can you guess 6 letters Drink name choosing alphabets from A-z (
+              you have 6 guesses)
+            </p>
           </section>
           <section class="hangman__keyboard keyboard">
             <div class="keyboard__row">

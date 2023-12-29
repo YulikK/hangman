@@ -3,35 +3,79 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #FDD7C8 0%, #FFE5D8 17.19%, #FFDFCF 60.94%, #F1CAAD 100%) fixed;
+  background: linear-gradient(
+      180deg,
+      #fdd7c8 0%,
+      #ffe5d8 17.19%,
+      #ffdfcf 60.94%,
+      #f1caad 100%
+    )
+    fixed;
 }
 
 .hangman {
-  margin: 40px 100px;
+  margin: 40px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: stretch;
 }
 
+@media (max-width: 680px) {
+  .hangman {
+    margin: 20px;
+  }
+}
+
 .hangman__title {
   align-self: center;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 72px;
   font-weight: 800;
   line-height: 105%;
   color: #4c271f;
 }
 
-.hangman-wrapper {
+@media (max-width: 680px) {
+  .hangman__title {
+    font-size: 50px;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.hangman__wrapper {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 680px) {
+  .hangman__wrapper {
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .hangman__gallows {
-  width: 514px;
-  height: 572px;
-  background: center no-repeat url("img/tree.png"), center no-repeat url("img/mistake-6.png");
+  width: 100%;
+  position: relative;
+}
+
+.hangman__gallows-tree {
+  width: 100%;
+  height: auto;
+}
+
+.hangman__gallows-mistake {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .hangman__results {
@@ -39,6 +83,13 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  position: relative;
+}
+
+@media (max-width: 680px) {
+  .hangman__results {
+    width: 100%;
+  }
 }
 
 .hangman__attempts {
@@ -46,18 +97,41 @@ body {
   gap: 20px;
 }
 
+@media (max-width: 680px) {
+  .hangman__attempts {
+    position: absolute;
+    right: 5px;
+    bottom: 0px;
+    gap: 5px;
+  }
+}
+
 .hangman__heart {
   width: 61px;
   height: 66px;
 }
 
+@media (max-width: 680px) {
+  .hangman__heart {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 .hangman__attempts-information {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 60px;
   font-weight: 600;
   line-height: 125%;
   color: #4c271f;
   margin: 0;
+}
+
+@media (max-width: 680px) {
+  .hangman__attempts-information {
+    font-size: 24px;
+    font-weight: 400;
+  }
 }
 
 .hangman__answer {
@@ -66,20 +140,28 @@ body {
 }
 
 .hangman__answer-letter {
-  width: 46px;
-  height: 50px;
+  width: 5vw;
+  padding: 0 3px;
+  max-width: 46px;
   border-bottom: 2px solid #a95830;
-  font-family: 'Nunito', sans-serif;
-  font-size: 50px;
-  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
   line-height: 125%;
   color: #4c271f;
   margin: 0;
   text-align: center;
 }
 
+@media (max-width: 680px) {
+  .hangman__answer-letter {
+    width: 7vw;
+    line-height: 100%;
+  }
+}
+
 .hangman__question-text {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 30px;
   font-weight: 300;
   line-height: 125%;
@@ -89,11 +171,21 @@ body {
 }
 
 .hangman__play {
+  width: 50%;
+  min-width: 580px;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 40px;
+}
+
+@media (max-width: 680px) {
+  .hangman__play {
+    min-width: 300px;
+    width: 100%;
+  }
 }
 
 .keyboard {
@@ -105,22 +197,42 @@ body {
 .keyboard__row {
   display: flex;
   justify-content: center;
-  gap: 12px;
 }
 
 .keyboard__letter {
   margin: 0;
-  width: 46px;
+  width: 9vw;
+  max-width: 50px;
   height: 50px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 32px;
   font-weight: 600;
   text-align: center;
   line-height: 160%;
   color: #4c271f;
   border-radius: 5px;
-  border: 2px solid #FFE9D7;
+  border-top: 2px solid #ffe9d7;
+  border-left: 2px solid #ffe9d7;
+  border-right: 2px solid #a95830;
+  border-bottom: 2px solid #a95830;
   opacity: 0.8;
-  background: linear-gradient(141deg, #FFDEBF 6.72%, #FFDBC7 12.33%, #FFD4BD 25.87%, rgba(244, 188, 154, 0.64) 70.24%), rgba(251, 196, 169, 0.70);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+      141deg,
+      #ffdebf 6.72%,
+      #ffdbc7 12.33%,
+      #ffd4bd 25.87%,
+      rgba(244, 188, 154, 0.64) 70.24%
+    ),
+    rgba(251, 196, 169, 0.7);
+  box-shadow:
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 680px) {
+  .keyboard__letter {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 200%;
+  }
 }
