@@ -13,7 +13,6 @@ const createAttemptsTemplate = () => {
 };
 
 export default class Attempts extends AbstractView {
-
   getTemplate() {
     return createAttemptsTemplate();
   }

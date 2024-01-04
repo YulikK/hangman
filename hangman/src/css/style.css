@@ -232,7 +232,7 @@ body {
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.keyboard__letter--active{
+.keyboard__letter--active {
   cursor: pointer;
 }
 
@@ -248,10 +248,19 @@ body {
 }
 
 .keyboard__letter--inactive {
-  border: 2px solid #F3F0ED;
+  border: 2px solid #f3f0ed;
   opacity: 0.8;
-  background: linear-gradient(141deg, #EFEBE7 6.72%, #ECE4E0 12.33%, #E0DBD9 25.87%, rgba(191, 182, 177, 0.92) 96.39%), rgba(242, 220, 209, 0.78);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+      141deg,
+      #efebe7 6.72%,
+      #ece4e0 12.33%,
+      #e0dbd9 25.87%,
+      rgba(191, 182, 177, 0.92) 96.39%
+    ),
+    rgba(242, 220, 209, 0.78);
+  box-shadow:
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 680px) {
@@ -262,7 +271,7 @@ body {
   }
 }
 
-.modal-results{
+.modal-results {
   display: block;
   position: fixed;
   width: 100%;
@@ -272,7 +281,7 @@ body {
   background: rgba(64, 63, 61, 0.8);
 }
 
-.modal-results__wrapper{
+.modal-results__wrapper {
   z-index: 900;
   position: fixed;
   top: 50%;

@@ -7,7 +7,7 @@ const createLetterTemplate = () => {
 const createAnswerTemplate = (answer) => {
   const answerLetterTemplate = answer
     .split("")
-    .map((letter) => createLetterTemplate())
+    .map(() => createLetterTemplate())
     .join(``);
   return `<section class="hangman__answer">
         ${answerLetterTemplate}
@@ -21,8 +21,10 @@ export default class Answer extends AbstractView {
   }
 
   setLetter(letter) {
-    const letterElement = this.getElement().querySelectorAll(`.hangman__answer-letter`);
-    this._answer.split('').forEach((answerLetter, index) => {
+    const letterElement = this.getElement().querySelectorAll(
+      `.hangman__answer-letter`,
+    );
+    this._answer.split("").forEach((answerLetter, index) => {
       if (answerLetter.toLowerCase() === letter.toLowerCase()) {
         letterElement[index].innerText = letter;
       }

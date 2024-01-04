@@ -35,24 +35,26 @@ export default class Keyboard extends AbstractView {
   }
 
   _keyClickHandler(evt) {
-    if (!evt.target.classList.contains('keyboard__letter')){
+    if (!evt.target.classList.contains("keyboard__letter")) {
       return;
     }
-    if(evt.target.classList.contains('keyboard__letter--active')) {
-      evt.target.classList.remove('keyboard__letter--active');
-      evt.target.classList.add('keyboard__letter--inactive');
+    if (evt.target.classList.contains("keyboard__letter--active")) {
+      evt.target.classList.remove("keyboard__letter--active");
+      evt.target.classList.add("keyboard__letter--inactive");
       evt.preventDefault();
       this._callback.keyboardClick(evt.target.innerText);
     }
   }
 
   _keyDownHandler(evt) {
-    if(evt.key) {
-      const keyElement = this.getElement().querySelector(`p[data-key="${evt.key.toLowerCase()}"]`);
+    if (evt.key) {
+      const keyElement = this.getElement().querySelector(
+        `p[data-key="${evt.key.toLowerCase()}"]`,
+      );
       if (keyElement) {
-        if(keyElement.classList.contains('keyboard__letter--active')) {
-          keyElement.classList.remove('keyboard__letter--active');
-          keyElement.classList.add('keyboard__letter--inactive');
+        if (keyElement.classList.contains("keyboard__letter--active")) {
+          keyElement.classList.remove("keyboard__letter--active");
+          keyElement.classList.add("keyboard__letter--inactive");
           evt.preventDefault();
           this._callback.keyboardClick(evt.key.toUpperCase());
         }
@@ -65,7 +67,8 @@ export default class Keyboard extends AbstractView {
     this.getElement().addEventListener(`click`, this._keyClickHandler);
     document.addEventListener(`keydown`, this._keyDownHandler);
   }
-  deleteKeyClickHandler(callback) {
+
+  deleteKeyClickHandler() {
     this.getElement().removeEventListener(`click`, this._keyClickHandler);
     document.removeEventListener(`keydown`, this._keyDownHandler);
   }

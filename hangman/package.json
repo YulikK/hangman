@@ -4,10 +4,9 @@
   "description": "classic word game in which you must find the correct answer by guessing letters one at a time",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx eslint src test",
+    "lint": "node node_modules/eslint/bin/eslint.js ./src",
     "lint:fix": "npm run lint -- --fix",
-    "prettier": "npx prettier src test --check",
+    "prettier": "npx prettier src --check",
     "prettier:fix": "npm run prettier -- --write",
     "format": "npm run prettier:fix && npm run lint:fix",
     "build": "webpack",

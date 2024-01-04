@@ -3,7 +3,9 @@ import AbstractView from "./abstract.js";
 const createEndGameTemplate = (question, answer, isWin) => {
   return `<aside class="modal-results">
   <div class="modal-results__wrapper">
-    <h1 class="modal-results__tittle">${isWin ? 'Uh, congratulations!' : 'Ups...'}</h1>
+    <h1 class="modal-results__tittle">${
+      isWin ? "Uh, congratulations!" : "Ups..."
+    }</h1>
     <p class="modal-results__information"><span class="modal-results__answer">${answer}</span> - ${question}</p>
     <a class="modal-results__button">Play again</a>
   </div>
@@ -24,14 +26,14 @@ export default class EndGame extends AbstractView {
   }
 
   _playAgainClickHandler(evt) {
-
     evt.preventDefault();
     this._callback.playAgainClick();
-
   }
 
   setPlayAgainClickHandler(callback) {
     this._callback.playAgainClick = callback;
-    this.getElement().querySelector('.modal-results__button').addEventListener(`click`, this._playAgainClickHandler);
+    this.getElement()
+      .querySelector(".modal-results__button")
+      .addEventListener(`click`, this._playAgainClickHandler);
   }
 }

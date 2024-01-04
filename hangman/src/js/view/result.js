@@ -6,7 +6,6 @@ const createResultTemplate = () => {
 };
 
 export default class Result extends AbstractView {
-
   getTemplate() {
     return createResultTemplate();
   }

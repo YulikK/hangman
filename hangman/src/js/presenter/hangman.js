@@ -38,7 +38,9 @@ export default class Hangman {
     this._foundLetters = [];
     this._currentQuestion = this._getRandomQuestion();
     this._setStorage();
-    this._attemptsInformationComponent = new AttemptsInformationView(this._mistakeCount);
+    this._attemptsInformationComponent = new AttemptsInformationView(
+      this._mistakeCount,
+    );
     this._answerComponent = new AnswerView(this._currentQuestion);
     this._questionComponent = new QuestionView(this._currentQuestion);
     this._keyboardComponent = new KeyboardView();
@@ -46,7 +48,6 @@ export default class Hangman {
   }
 
   _renderBase() {
-
     render(this._gameContainer, this._mainComponent);
     render(this._mainComponent, this._hangmanWrapperComponent);
     render(this._hangmanWrapperComponent, this._playComponent);
@@ -56,7 +57,6 @@ export default class Hangman {
   }
 
   _renderGame() {
-
     render(this._gameContainer, this._mainComponent);
     render(this._mainComponent, this._hangmanWrapperComponent);
     render(this._hangmanWrapperComponent, this._playComponent);
@@ -76,7 +76,8 @@ export default class Hangman {
   }
 
   _setNextGameStep(letter) {
-    if (this._currentQuestion.answer.includes(letter.toLowerCase())) this._setNewLetter(letter)
+    if (this._currentQuestion.answer.includes(letter.toLowerCase()))
+      this._setNewLetter(letter);
     else if (this._mistakeCount < MAX_MISTAKE_COUNT) this._setNewMistake();
   }
 
@@ -86,15 +87,18 @@ export default class Hangman {
     if (this._isFinish()) this._showEndGameInformation();
   }
 
-  _setNewMistake(){
+  _setNewMistake() {
     this._mistakeCount += 1;
     if (this._mistakeCount === 1) {
-      this._gallowsMistakeComponent = new GallowsMistakeView(this._mistakeCount);
+      this._gallowsMistakeComponent = new GallowsMistakeView(
+        this._mistakeCount,
+      );
       render(this._gallowsComponent, this._gallowsMistakeComponent);
     }
     this._gallowsMistakeComponent.updateMistake(this._mistakeCount);
     this._attemptsInformationComponent.updateMistake(this._mistakeCount);
-    if (this._mistakeCount === MAX_MISTAKE_COUNT) this._showEndGameInformation();
+    if (this._mistakeCount === MAX_MISTAKE_COUNT)
+      this._showEndGameInformation();
   }
 
   _getRandomQuestion() {
@@ -110,24 +114,24 @@ export default class Hangman {
   }
 
   _isFinish() {
-    const answerLetters = this
-    ._currentQuestion
-    .answer
-    .split('')
-    .filter((el) => !(this._foundLetters.includes(el)));
+    const answerLetters = this._currentQuestion.answer
+      .split("")
+      .filter((el) => !this._foundLetters.includes(el));
     return answerLetters.length === 0;
   }
 
   _showEndGameInformation() {
+    this._endGameComponent = new EndGameView(
+      this._currentQuestion,
+      this._mistakeCount < MAX_MISTAKE_COUNT,
+    );
 
-    this._endGameComponent = new EndGameView(this._currentQuestion, this._mistakeCount < MAX_MISTAKE_COUNT);
-    
     render(this._gameContainer, this._endGameComponent);
 
     const onPlayAgainClick = () => {
       this._restartGame();
-    }
-  
+    };
+
     this._endGameComponent.setPlayAgainClickHandler(onPlayAgainClick);
   }
 
@@ -151,13 +155,19 @@ export default class Hangman {
   }
 
   _setStorage() {
-    window.localStorage.setItem(`${STORE_NAME}-currentQuestionId`, this._currentQuestion.id);
+    window.localStorage.setItem(
+      `${STORE_NAME}-currentQuestionId`,
+      this._currentQuestion.id,
+    );
   }
   _getStorage() {
-    const questionId = window.localStorage.getItem(`${STORE_NAME}-currentQuestionId`);
+    const questionId = window.localStorage.getItem(
+      `${STORE_NAME}-currentQuestionId`,
+    );
     if (questionId) {
-      this._currentQuestion = this._questions.filter((el) => el.id === questionId)[0];
+      this._currentQuestion = this._questions.filter(
+        (el) => el.id === questionId,
+      )[0];
     }
   }
-  
 }
