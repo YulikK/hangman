@@ -27,6 +27,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "./src/img", to: "img" },
+        { from: "./src/favicon.png"},
         { from: "./src/css" }
       ],
     }),
