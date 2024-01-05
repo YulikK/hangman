@@ -12,5 +12,7 @@
 @function adaptive-size($max-size, $min-size) {
   $add-size: $max-size - $min-size;
   $max-free-width: $desktop-width-count - $mobile-width-count;
-  @return calc(#{$min-size + px} + #{$add-size} * ((100vw - 680px) / #{$max-free-width}));
+  @return calc(
+    #{$min-size + px} + #{$add-size} * ((100vw - 680px) / #{$max-free-width})
+  );
 }

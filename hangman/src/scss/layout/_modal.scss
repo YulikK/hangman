@@ -5,7 +5,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  
+
   @include modal-backdrop-style();
 
   &__wrapper {
@@ -24,7 +24,7 @@
 
     @include modal-style();
 
-    @media (max-width: $mobile-width){
+    @media (max-width: $mobile-width) {
       padding: 10px;
     }
   }
@@ -67,6 +67,5 @@
     &:hover {
       @include modal-button-hover-style();
     }
-
   }
 }

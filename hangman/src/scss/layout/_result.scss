@@ -5,7 +5,7 @@
   align-items: center;
   position: relative;
 
-  @media (max-width: $mobile-width){
+  @media (max-width: $mobile-width) {
     width: 100%;
   }
 
@@ -30,8 +30,8 @@
   &__attempts {
     display: flex;
     gap: 20px;
-  
-    @media (max-width: $mobile-width){
+
+    @media (max-width: $mobile-width) {
       position: absolute;
       right: 5px;
       bottom: 0px;
@@ -42,8 +42,8 @@
   &__attempts {
     display: flex;
     gap: 20px;
-  
-    @media (max-width: $mobile-width){
+
+    @media (max-width: $mobile-width) {
       position: absolute;
       right: 5px;
       bottom: 0px;
@@ -52,12 +52,11 @@
   }
 
   &__heart {
-
     width: adaptive-size(61, 25);
     height: adaptive-size(61, 25);
     // width: 61px;
     // height: 66px;
-  
+
     // @media (max-width: $mobile-width){
     //   width: 25px;
     //   height: 25px;
@@ -69,15 +68,10 @@
 
     @include font-attempts-desktop();
     @include adaptive-font-attempts();
-  
+
     // @media (max-width: $mobile-width){
     //   font-size: 24px;
     //   font-weight: 400;
     // }
   }
 }
-
-
-
-
-

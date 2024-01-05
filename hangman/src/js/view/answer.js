@@ -22,9 +22,8 @@ export default class Answer extends AbstractView {
   }
 
   setLetter(letter) {
-    const letterElement = this.getElement().querySelectorAll(
-      `.game__answer-letter`,
-    );
+    const letterElement =
+      this.getElement().querySelectorAll(`.game__answer-letter`);
     this._answer.split("").forEach((answerLetter, index) => {
       if (answerLetter.toLowerCase() === letter.toLowerCase()) {
         letterElement[index].innerText = letter.toLowerCase();

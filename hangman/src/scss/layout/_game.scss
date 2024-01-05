@@ -8,7 +8,7 @@
   align-items: center;
   gap: 40px;
 
-  @media (max-width: $mobile-width){
+  @media (max-width: $mobile-width) {
     min-width: 300px;
     width: 100%;
   }
@@ -19,24 +19,23 @@
     height: 50px;
     align-items: flex-end;
   }
-  
+
   &__answer-letter {
     width: 5vw;
     max-width: 46px;
     padding: 0 3px;
     margin: 0;
     text-align: center;
-    
+
     @include answer-style();
     @include font-answer-desktop();
     @include adaptive-font-answer();
-    
-  
-    @media (max-width: $mobile-width){
+
+    @media (max-width: $mobile-width) {
       width: 7vw;
     }
   }
-  
+
   &__question-text {
     margin: 0;
     text-align: center;

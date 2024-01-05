@@ -1,4 +1,4 @@
-import '../scss/main.scss';
+import "../scss/main.scss";
 import mockFile from "../mock/questions.json";
 import QuestionModel from "./model/questions.js";
 import HangmanPresenter from "./presenter/hangman.js";

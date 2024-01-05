@@ -1,7 +1,10 @@
 @function adaptive-font($max-font-size, $min-font-size) {
   $add-size: $max-font-size - $min-font-size;
   $max-free-width: $desktop-width-count - $mobile-width-count;
-  @return calc(#{$min-font-size + px} + #{$add-size} * ((100vw - 680px) / #{$max-free-width}));
+  @return calc(
+    #{$min-font-size + px} + #{$add-size} *
+      ((100vw - 680px) / #{$max-free-width})
+  );
 }
 
 @mixin adaptive-font-title() {
@@ -9,7 +12,7 @@
   line-height: adaptive-font(75.6, 48.3);
 }
 
-@mixin font-title-desktop(){
+@mixin font-title-desktop() {
   font-family: $font-stack;
   color: $text-title-color;
   font-weight: 800;
@@ -19,7 +22,7 @@
   font-size: adaptive-font(36, 24);
 }
 
-@mixin font-answer-desktop(){
+@mixin font-answer-desktop() {
   font-family: $font-stack;
   font-weight: 600;
   color: $text-title-color;
@@ -29,7 +32,7 @@
   font-size: adaptive-font(30, 24);
 }
 
-@mixin font-question-desktop(){
+@mixin font-question-desktop() {
   font-family: $font-stack;
   font-weight: 300;
   line-height: 125%;
@@ -40,7 +43,7 @@
   font-size: adaptive-font(32, 24);
 }
 
-@mixin font-keyboard-desktop(){
+@mixin font-keyboard-desktop() {
   font-family: $font-stack;
   color: $text-title-color;
   font-weight: 600;
@@ -50,7 +53,7 @@
   font-size: adaptive-font(60, 24);
 }
 
-@mixin font-attempts-desktop(){
+@mixin font-attempts-desktop() {
   font-family: $font-stack;
   color: $text-title-color;
   font-weight: 600;
@@ -100,4 +103,3 @@
   font-weight: 600;
   line-height: 160%;
 }
-
