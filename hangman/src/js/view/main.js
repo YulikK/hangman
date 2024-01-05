@@ -2,7 +2,6 @@ import AbstractView from "./abstract.js";
 
 const createMainTemplate = () => {
   return `<main class="hangman">
-      <h1 class="hangman__title">Hangman</h1>
     </main>`;
 };
 

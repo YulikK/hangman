@@ -3,7 +3,7 @@ import AbstractView from "./abstract.js";
 const createEndGameTemplate = (question, answer, isWin) => {
   return `<aside class="modal-results">
   <div class="modal-results__wrapper">
-    <h1 class="modal-results__tittle">${
+    <h1 class="modal-results__title">${
       isWin ? "Uh, congratulations!" : "Ups..."
     }</h1>
     <p class="modal-results__information"><span class="modal-results__answer">${answer}</span> - ${question}</p>

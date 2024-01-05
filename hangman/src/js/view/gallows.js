@@ -1,9 +1,9 @@
 import AbstractView from "./abstract.js";
 
 const createGallowsTemplate = () => {
-  return `<div class="hangman__gallows">
+  return `<div class="result__gallows">
           <img
-            class="hangman__gallows-tree"
+            class="result__gallows-tree"
             src="img/tree.png"
             alt="allows"
             width="514"

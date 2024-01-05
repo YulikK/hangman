@@ -1,9 +1,9 @@
 import AbstractView from "./abstract.js";
 
 const createAttemptsTemplate = () => {
-  return `<div class="hangman__attempts">
+  return `<div class="result__attempts">
             <img
-              class="hangman__heart"
+              class="result__heart"
               src="img/heart.png"
               alt=""
               width="61"

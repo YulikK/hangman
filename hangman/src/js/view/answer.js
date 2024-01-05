@@ -1,7 +1,7 @@
 import AbstractView from "./abstract.js";
 
 const createLetterTemplate = () => {
-  return `<p class="hangman__answer-letter"></p>`;
+  return `<p class="game__answer-letter"></p>`;
 };
 
 const createAnswerTemplate = (answer) => {
@@ -9,7 +9,8 @@ const createAnswerTemplate = (answer) => {
     .split("")
     .map(() => createLetterTemplate())
     .join(``);
-  return `<section class="hangman__answer">
+  return `<section class="game__answer">
+        <h2 class="game__answer-title visually-hidden">Answer</h2>
         ${answerLetterTemplate}
       </section>`;
 };
@@ -22,11 +23,11 @@ export default class Answer extends AbstractView {
 
   setLetter(letter) {
     const letterElement = this.getElement().querySelectorAll(
-      `.hangman__answer-letter`,
+      `.game__answer-letter`,
     );
     this._answer.split("").forEach((answerLetter, index) => {
       if (answerLetter.toLowerCase() === letter.toLowerCase()) {
-        letterElement[index].innerText = letter;
+        letterElement[index].innerText = letter.toLowerCase();
       }
     });
   }

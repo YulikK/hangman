@@ -1,5 +1,5 @@
 import AbstractView from "./abstract.js";
-import { KEYBOARD } from "../const.js";
+import { KEYBOARD } from "../utils/const.js";
 
 const createLetterTemplate = (letter) => {
   return `<p class="keyboard__letter keyboard__letter--active" data-key="${letter}">${letter.toUpperCase()}</p>`;
@@ -18,7 +18,8 @@ const createKeyboardTemplate = () => {
   const keyboardRowTemplate = KEYBOARD.map((row) =>
     createRowTemplate(row),
   ).join(``);
-  return `<section class="hangman__keyboard keyboard">
+  return `<section class="game__keyboard keyboard">
+    <h2 class="keyboard__title visually-hidden">Keyboard</h2>
       ${keyboardRowTemplate}
     </section>`;
 };

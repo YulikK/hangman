@@ -1,5 +1,5 @@
 import { render, remove } from "../utils/render.js";
-import { MAX_MISTAKE_COUNT, STORE_NAME } from "../const.js";
+import { MAX_MISTAKE_COUNT, STORE_NAME } from "../utils/const.js";
 import MainView from "../view/main.js";
 import HangmanWrapperView from "../view/hangman-wrapper.js";
 import ResultView from "../view/result.js";
@@ -7,7 +7,7 @@ import AttemptsView from "../view/attempts.js";
 import AttemptsInformationView from "../view/attempts-information.js";
 import GallowsView from "../view/gallows.js";
 import GallowsMistakeView from "../view/gallows-mistake.js";
-import PlayView from "../view/play.js";
+import GameView from "../view/game.js";
 import AnswerView from "../view/answer.js";
 import QuestionView from "../view/question.js";
 import KeyboardView from "../view/keyboard.js";
@@ -19,7 +19,7 @@ export default class Hangman {
     this._resultComponent = new ResultView();
     this._mainComponent = new MainView();
     this._hangmanWrapperComponent = new HangmanWrapperView();
-    this._playComponent = new PlayView();
+    this._gameComponent = new GameView();
     this._resultComponent = new ResultView();
     this._gallowsComponent = new GallowsView();
     this._attemptsComponent = new AttemptsView();
@@ -50,7 +50,7 @@ export default class Hangman {
   _renderBase() {
     render(this._gameContainer, this._mainComponent);
     render(this._mainComponent, this._hangmanWrapperComponent);
-    render(this._hangmanWrapperComponent, this._playComponent);
+    render(this._hangmanWrapperComponent, this._gameComponent);
     render(this._hangmanWrapperComponent, this._resultComponent);
     render(this._resultComponent, this._gallowsComponent);
     render(this._resultComponent, this._attemptsComponent);
@@ -59,14 +59,14 @@ export default class Hangman {
   _renderGame() {
     render(this._gameContainer, this._mainComponent);
     render(this._mainComponent, this._hangmanWrapperComponent);
-    render(this._hangmanWrapperComponent, this._playComponent);
+    render(this._hangmanWrapperComponent, this._gameComponent);
     render(this._hangmanWrapperComponent, this._resultComponent);
     render(this._resultComponent, this._gallowsComponent);
     render(this._resultComponent, this._attemptsComponent);
     render(this._attemptsComponent, this._attemptsInformationComponent);
-    render(this._playComponent, this._answerComponent);
-    render(this._playComponent, this._questionComponent);
-    render(this._playComponent, this._keyboardComponent);
+    render(this._gameComponent, this._answerComponent);
+    render(this._gameComponent, this._questionComponent);
+    render(this._gameComponent, this._keyboardComponent);
 
     const onKeyClick = (letter) => {
       this._setNextGameStep(letter);

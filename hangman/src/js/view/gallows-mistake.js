@@ -2,7 +2,7 @@ import AbstractView from "./abstract.js";
 
 const createGallowsMistakeTemplate = (mistakeCount) => {
   return `<img
-            class="hangman__gallows-mistake"
+            class="result__gallows-mistake"
             src="img/mistake-${mistakeCount}.png"
             alt="mistake"
             width="514"

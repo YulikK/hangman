@@ -1,8 +1,8 @@
 import AbstractView from "./abstract.js";
-import { MAX_MISTAKE_COUNT } from "../const.js";
+import { MAX_MISTAKE_COUNT } from "../utils/const.js";
 
 const createAttemptsInformationTemplate = (mistakeCount) => {
-  return `<p class="hangman__attempts-information">${mistakeCount}/${MAX_MISTAKE_COUNT}</p>`;
+  return `<p class="result__attempts-information">${mistakeCount}/${MAX_MISTAKE_COUNT}</p>`;
 };
 
 export default class AttemptsInformation extends AbstractView {

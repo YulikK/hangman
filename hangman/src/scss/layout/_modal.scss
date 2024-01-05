@@ -1,0 +1,72 @@
+.modal-results {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  
+  @include modal-backdrop-style();
+
+  &__wrapper {
+    z-index: 900;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include modal-style();
+
+    @media (max-width: $mobile-width){
+      padding: 10px;
+    }
+  }
+
+  &__title {
+    align-self: center;
+    margin: 20px 0;
+    text-align: center;
+
+    @include font-modal-title-desktop();
+    @include adaptive-font-modal-title();
+  }
+
+  &__information {
+    margin: 0;
+    text-align: center;
+    margin: 20px 0;
+
+    @include font-modal-information-desktop();
+    @include adaptive-font-modal-information();
+  }
+
+  &__answer {
+    margin: 0;
+    text-align: center;
+
+    @include font-modal-answer-desktop();
+    @include adaptive-font-modal-answer();
+  }
+
+  &__button {
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    @include font-modal-button-desktop();
+    @include adaptive-font-modal-button();
+
+    @include modal-button-style();
+
+    &:hover {
+      @include modal-button-hover-style();
+    }
+
+  }
+}
