@@ -2,6 +2,7 @@ import { render, remove } from "../utils/render.js";
 import { MAX_MISTAKE_COUNT, STORE_NAME } from "../utils/const.js";
 import MainView from "../view/main.js";
 import HangmanWrapperView from "../view/hangman-wrapper.js";
+import GameWrapperView from "../view/game-wrapper.js";
 import ResultView from "../view/result.js";
 import AttemptsView from "../view/attempts.js";
 import AttemptsInformationView from "../view/attempts-information.js";
@@ -19,11 +20,11 @@ export default class Hangman {
     this._resultComponent = new ResultView();
     this._mainComponent = new MainView();
     this._hangmanWrapperComponent = new HangmanWrapperView();
+    this._gameWrapperComponent = new GameWrapperView();
     this._gameComponent = new GameView();
     this._resultComponent = new ResultView();
     this._gallowsComponent = new GallowsView();
     this._attemptsComponent = new AttemptsView();
-    // this._store = new Store(STORE_NAME, window.localStorage);
   }
 
   init(questions) {
@@ -50,19 +51,14 @@ export default class Hangman {
   _renderBase() {
     render(this._gameContainer, this._mainComponent);
     render(this._mainComponent, this._hangmanWrapperComponent);
-    render(this._hangmanWrapperComponent, this._gameComponent);
-    render(this._hangmanWrapperComponent, this._resultComponent);
+    render(this._hangmanWrapperComponent, this._gameWrapperComponent);
+    render(this._gameWrapperComponent, this._gameComponent);
+    render(this._gameWrapperComponent, this._resultComponent);
     render(this._resultComponent, this._gallowsComponent);
     render(this._resultComponent, this._attemptsComponent);
   }
 
   _renderGame() {
-    render(this._gameContainer, this._mainComponent);
-    render(this._mainComponent, this._hangmanWrapperComponent);
-    render(this._hangmanWrapperComponent, this._gameComponent);
-    render(this._hangmanWrapperComponent, this._resultComponent);
-    render(this._resultComponent, this._gallowsComponent);
-    render(this._resultComponent, this._attemptsComponent);
     render(this._attemptsComponent, this._attemptsInformationComponent);
     render(this._gameComponent, this._answerComponent);
     render(this._gameComponent, this._questionComponent);
