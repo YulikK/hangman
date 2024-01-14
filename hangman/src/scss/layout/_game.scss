@@ -14,10 +14,12 @@
   }
 
   &__answer {
+    width: 100%;
     display: flex;
     gap: 12px;
     height: 50px;
     align-items: flex-end;
+    justify-content: center;
   }
 
   &__answer-letter {
