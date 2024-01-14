@@ -1,15 +1,42 @@
 import AbstractView from "./abstract.js";
+import { createDomElement } from "../utils/render.js";
 
-const createEndGameTemplate = (question, answer, isWin) => {
-  return `<aside class="modal-results">
-  <div class="modal-results__wrapper">
-    <h1 class="modal-results__title">${
-      isWin ? "Uh, congratulations!" : "Ups..."
-    }</h1>
-    <p class="modal-results__information"><span class="modal-results__answer">${answer}</span> - ${question}</p>
-    <a class="modal-results__button">Play again</a>
-  </div>
-</aside>`;
+const getPropertiesAsideTemplate = () => {
+  return {
+    tag: "aside",
+    className: "modal-results",
+  };
+};
+
+const getPropertiesDiveTemplate = () => {
+  return {
+    tag: "div",
+    className: "modal-results__wrapper",
+  };
+};
+
+const getPropertiesTitleTemplate = (isWin) => {
+  return {
+    tag: "h2",
+    className: "modal-results__title",
+    textContent: `${isWin ? "Uh, congratulations!" : "Ups..."}`,
+  };
+};
+
+const getPropertiesInformationTemplate = (answer, question) => {
+  return {
+    tag: "p",
+    className: "modal-results__information",
+    innerHTML: `<span class="modal-results__answer">${answer}</span> - ${question}`,
+  };
+};
+
+const getPropertiesButtonTemplate = () => {
+  return {
+    tag: "a",
+    className: "modal-results__button",
+    textContent: "Play again",
+  };
 };
 
 export default class EndGame extends AbstractView {
@@ -18,11 +45,39 @@ export default class EndGame extends AbstractView {
     this._isWin = isWin;
     this._question = question.text;
     this._answer = question.answer;
+    this._elements = this.generateNode();
+    this._structure = {
+      element: this._elements.aside,
+      child: [
+        {
+          element: this._elements.div,
+          child: [
+            {
+              element: this._elements.title,
+            },
+            {
+              element: this._elements.information,
+            },
+            {
+              element: this._elements.closeBtn,
+            },
+          ],
+        },
+      ],
+    };
     this._playAgainClickHandler = this._playAgainClickHandler.bind(this);
   }
 
-  getTemplate() {
-    return createEndGameTemplate(this._question, this._answer, this._isWin);
+  generateNode() {
+    return {
+      aside: createDomElement(getPropertiesAsideTemplate()),
+      div: createDomElement(getPropertiesDiveTemplate()),
+      title: createDomElement(getPropertiesTitleTemplate(this._isWin)),
+      information: createDomElement(
+        getPropertiesInformationTemplate(this._answer, this._question),
+      ),
+      closeBtn: createDomElement(getPropertiesButtonTemplate()),
+    };
   }
 
   _playAgainClickHandler(evt) {
@@ -32,8 +87,9 @@ export default class EndGame extends AbstractView {
 
   setPlayAgainClickHandler(callback) {
     this._callback.playAgainClick = callback;
-    this.getElement()
-      .querySelector(".modal-results__button")
-      .addEventListener(`click`, this._playAgainClickHandler);
+    this._elements.closeBtn.addEventListener(
+      `click`,
+      this._playAgainClickHandler,
+    );
   }
 }
