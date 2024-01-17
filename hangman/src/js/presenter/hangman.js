@@ -10,6 +10,7 @@ export default class Hangman {
   constructor(gameContainer) {
     this._gameContainer = gameContainer;
     this._mainComponent = new MainView();
+    this._isGameStarted = false;
   }
 
   init(questions) {
@@ -23,6 +24,7 @@ export default class Hangman {
   }
 
   _startNewGame() {
+    this._isGameStarted = true;
     this._mistakeCount = 0;
     this._foundLetters = [];
     this._currentQuestion = this._getRandomQuestion();
@@ -51,9 +53,11 @@ export default class Hangman {
   }
 
   _setNextGameStep(letter) {
-    if (this._currentQuestion.answer.includes(letter.toLowerCase()))
-      this._setNewLetter(letter);
-    else if (this._mistakeCount < MAX_MISTAKE_COUNT) this._setNewMistake();
+    if (this._isGameStarted) {
+      if (this._currentQuestion.answer.includes(letter.toLowerCase()))
+        this._setNewLetter(letter);
+      else if (this._mistakeCount < MAX_MISTAKE_COUNT) this._setNewMistake();
+    }
   }
 
   _setNewLetter(letter) {
@@ -89,6 +93,8 @@ export default class Hangman {
   }
 
   _showEndGameInformation() {
+    this._isGameStarted = false;
+    this._keyboardComponent.deleteKeyClickHandler();
     this._endGameComponent = new EndGameView(
       this._currentQuestion,
       this._mistakeCount < MAX_MISTAKE_COUNT,
@@ -116,7 +122,7 @@ export default class Hangman {
   _destroyGameResult() {
     remove(this._resultComponent);
     remove(this._gameComponent);
-    this._keyboardComponent.deleteKeyClickHandler();
+    // this._keyboardComponent.deleteKeyClickHandler();
     remove(this._keyboardComponent);
   }
 
